@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="projectStatusForm" (ngSubmit)="onsubmit()">
+          <div class="form-group">
+            <label for="projectname">Project Name</label>
+            <input
+              type="text"
+              id="projectname"
+              formControlName="projectname"
+              class="form-control">
+              <span class="help-block"
+               *ngIf="!projectStatusForm.get('projectname').valid && projectStatusForm.get('projectname').touched">
+              This Field is Required Here!
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              formControlName="email"
+              class="form-control">
+              <span class="help-block" *ngIf="!projectStatusForm.get('email').valid && projectStatusForm.get('email').touched">
+                Please Enter the Valid Email!
+              </span>
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select
+              id="status"
+              formControlName="status"
+              class="form-control">
+              <option disabled>Select the Status</option>
+              <option value="stable">Stable</option>
+              <option value="critical">Critical</option>
+              <option value="finished">Finished</option>
+            </select>
+          </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
